@@ -1,11 +1,12 @@
 
 
-export function Post() {
+export function Post(props) {
+
   return (
     <>
       <article>
-        <strong>Titulo da noticia</strong> <br />
-        <small>Subtítulo da notícia</small>
+        <strong>{props.post.title}</strong> <br />
+        <small>{props.post.subtitle}</small>
       </article>
       <br />
     </>
