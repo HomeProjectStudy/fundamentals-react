@@ -7,7 +7,9 @@ function App() {
       <Header
         title="Notícias"
         subtitle="Posts da semana"
-      />
+      >
+        <h2>Posts da semana</h2>
+      </Header>
       <hr />
       <Post
         post={{
