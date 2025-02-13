@@ -1,4 +1,5 @@
 
+import PropTypes from 'prop-types';
 
 export function Header({ title, children }) {
 
@@ -9,3 +10,8 @@ export function Header({ title, children }) {
     </>
   );
 }
+
+Header.proTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
+};
