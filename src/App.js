@@ -11,19 +11,22 @@ function App() {
       id: Math.random() * 1000,
       title: 'Título da notícia 01',
       subtitle: 'Subtitle da notícia',
-      likes: 20
+      likes: 20,
+      read: false
     },
     {
       id: Math.random() * 1000,
       title: 'Título da notícia 02',
       subtitle: 'Subtitle da notícia 02',
-      likes: 210
+      likes: 210,
+      read: false
     },
     {
       id: Math.random() * 1000,
       title: 'Título da notícia 03',
       subtitle: 'Subtitle da notícia 03',
-      likes: 310
+      likes: 310,
+      read: true
     }
   ]);
 
@@ -32,7 +35,8 @@ function App() {
       id: Math.random() * 1000,
       title: `Título da notícia ${posts.length + 1}`,
       subtitle: `Subtitle da notícia  ${posts.length + 1}`,
-      likes: 410 + posts.length + 1
+      likes: 410 + posts.length + 1,
+      read: true
     }]);
   }
 
@@ -55,11 +59,7 @@ function App() {
           <Post
             key={post.id}
             likes={post.likes}
-            post={{
-              id: post.id,
-              title: post.title,
-              subtitle: post.subtitle
-            }}
+            post={post}
             onRemove={handleRemovePost}
           />
         ))
