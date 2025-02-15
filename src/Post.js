@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types';
+import { PostHeader } from './PostHeader';
 
 export function Post(props) {
   return (
     <>
       <article>
-        <strong>
-          {
-            props.post.read ? (
-              <s>{props.post.title}</s>
-            ) : (
-              props.post.title
-            )
-          }
-        </strong>
-        <button onClick={() => props.onRemove(props.post.id)}>remover</button>
+        <PostHeader
+          onRemove={props.onRemove}
+          post={props.post}
+        />
+
         <br />
         <small>{props.post.subtitle}</small><br />
         Likes: {props.post.likes || 0}
