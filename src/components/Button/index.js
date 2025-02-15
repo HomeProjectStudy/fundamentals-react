@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useTheme } from './contexts/ThemeContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export function Button(props){
   const { theme } = useTheme();

@@ -1,7 +1,8 @@
-import { Post } from './Post';
-import { Header } from './Header';
+
 import { useState } from 'react';
-import { ThemeProvider } from './contexts/ThemeContext';
+import { Header } from '../components/Header';
+import { Post } from '../components/Post/Post';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 
 

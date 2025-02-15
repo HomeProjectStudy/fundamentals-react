@@ -1,15 +1,14 @@
 
 import PropTypes from 'prop-types';
-import { Button } from './Button';
-import { useTheme } from './contexts/ThemeContext';
-import styles from './Header.module.css';
+import { Button } from '../Button';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export function Header({ title, children }) {
   const { handleToogleTheme } = useTheme();
 
   return (
     <div>
-      <h1 className={styles.title}>{title}</h1>
+      <h1 >{title}</h1>
       <Button onClick={handleToogleTheme}>mudar tema</Button>
       {children}
       <br />

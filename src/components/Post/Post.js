@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader';
-import styles from './Post.module.css';
 export function Post(props) {
   return (
-    <article
-      className={props.post.removed ? styles.postDeleted : styles.post}
-    >
+    <article>
       <PostHeader
         onRemove={props.onRemove}
         post={props.post}
