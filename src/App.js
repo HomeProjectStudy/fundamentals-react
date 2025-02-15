@@ -13,22 +13,24 @@ function App() {
       title: 'Título da notícia 01',
       subtitle: 'Subtitle da notícia',
       likes: 20,
-      read: false
+      read: false,
+      removed: false
     },
     {
       id: Math.random() * 1000,
       title: 'Título da notícia 02',
       subtitle: 'Subtitle da notícia 02',
       likes: 210,
-      read: false
+      read: false,
+      removed: false
     },
     {
       id: Math.random() * 1000,
       title: 'Título da notícia 03',
       subtitle: 'Subtitle da notícia 03',
       likes: 310,
-      read: true
-    }
+      read: true,
+      removed: true    }
   ]);
 
   function handleRefresh() {
@@ -42,7 +44,9 @@ function App() {
   }
 
   function handleRemovePost(postId) {
-    setPosts((prevState) => prevState.filter((post) => post.id !== postId));
+    setPosts((prevState) => prevState.map((post) => (
+      post.id === postId ? { ...post, removed: true } : post
+    )));
   }
 
   return (
