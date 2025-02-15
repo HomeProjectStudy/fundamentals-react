@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader';
-import { Rate, SubTitle } from './styles';
+import { Container, Rate, SubTitle } from './styles';
 export function Post(props) {
   return (
-    <article>
+    <Container removed={props.post.removed}>
       <PostHeader
         onRemove={props.onRemove}
         post={props.post}
-
       />
 
       <br />
       <SubTitle>{props.post.subtitle}</SubTitle><br />
       <Rate>Likes: {props.post.likes / 2 || 0}</Rate>
-    </article>
+    </Container>
   );
 }
 
