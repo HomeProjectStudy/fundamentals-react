@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { PostHeader } from './PostHeader';
+import { Rate, SubTitle } from './styles';
 export function Post(props) {
   return (
     <article>
@@ -10,8 +11,8 @@ export function Post(props) {
       />
 
       <br />
-      <small>{props.post.subtitle}</small><br />
-        Likes: {props.post.likes || 0}
+      <SubTitle>{props.post.subtitle}</SubTitle><br />
+      <Rate>Likes: {props.post.likes / 2 || 0}</Rate>
     </article>
   );
 }
