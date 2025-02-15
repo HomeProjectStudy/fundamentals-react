@@ -1,6 +1,7 @@
 import { Post } from './Post';
 import { Header } from './Header';
 import { useState } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 
 
@@ -45,7 +46,7 @@ function App() {
   }
 
   return (
-    <>
+    <ThemeProvider>
       <Header
         title="Notícias"
         subtitle="Posts da semana"
@@ -65,7 +66,7 @@ function App() {
         ))
       }
 
-    </>
+    </ThemeProvider>
   );
 }
 
