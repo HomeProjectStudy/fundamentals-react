@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useLayoutEffect } from 'react';
 
 import GlobalStyle from '../styles/global';
 import Layout from '../Layout';
@@ -10,6 +10,7 @@ function App() {
   const [theme, setTheme] = useState('dark');
 
 
+
   const currentTheme = useMemo(() => {
     return themes[theme] || themes.dark;
   }, [theme]);
@@ -18,6 +19,10 @@ function App() {
     setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'));
   }
 
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <ThemeProvider theme={currentTheme}>
