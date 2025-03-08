@@ -4,18 +4,12 @@ import PostsList from '../components/PostList';
 import Footer from '../components/Footer';
 import PropTypes from 'prop-types';
 
-export default function Layout({onToggleTheme, selectedTheme}) {
+export default function Layout() {
   return (
     <>
-      <Header
-        onToggleTheme={onToggleTheme}
-        selectedTheme={selectedTheme}
-      />
+      <Header/>
       <PostsList />
-      <Footer
-        onToggleTheme={onToggleTheme}
-        selectedTheme={selectedTheme}
-      />
+      <Footer/>
     </>
   );
 }

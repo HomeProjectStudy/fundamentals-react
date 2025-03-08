@@ -4,7 +4,7 @@ import GlobalStyle from '../styles/global';
 import Layout from '../Layout';
 import { ThemeProvider } from 'styled-components';
 import themes from '../styles/themes';
-
+import { ThemeProviderClass, ThemeContextClass } from '../contexts/ThemeContext-class';
 
 // function App() {
 //   const [theme, setTheme] = useState('dark');
@@ -36,29 +36,21 @@ import themes from '../styles/themes';
 // }
 class App extends React.Component {
 
-  state = {
-    theme:'dark'
-  };
-
-
-
-  handleToogleTheme = () => {
-    this.setState((prevState) => ({
-      theme: prevState.theme === 'dark' ? 'light' : 'dark'
-    }));
-  };
 
   render() {
-    const { theme } = this.state;
+
 
     return (
-      <ThemeProvider theme={themes[theme] || themes.dark}>
-        <GlobalStyle />
-        <Layout
-          onToggleTheme={this.handleToogleTheme}
-          selectedTheme={theme}
-        />
-      </ThemeProvider>
+      <ThemeProviderClass>
+        <ThemeContextClass.Consumer>
+          {({theme}) => (
+            <ThemeProvider theme={themes[theme] || themes.dark}>
+              <GlobalStyle />
+              <Layout/>
+            </ThemeProvider>
+          )}
+        </ThemeContextClass.Consumer>
+      </ThemeProviderClass>
     );
   }
 }

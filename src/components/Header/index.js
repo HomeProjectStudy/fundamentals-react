@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
+import { ThemeContextClass } from '../../contexts/ThemeContext-class';
 
 import { Container } from './styles';
 
@@ -19,23 +18,24 @@ import { Container } from './styles';
 // }
 
 export default class Header extends Component {
-  static propTypes = {
-    onToggleTheme: PropTypes.func.isRequired,
-    selectedTheme: PropTypes.string.isRequired
-  };
 
   render(){
     const { onToggleTheme, selectedTheme } = this.props;
     return(
-      <Container>
-        <h1>JStack Blog</h1>
-        <button
-          type="button"
-          onClick={onToggleTheme}
-        >
-          {selectedTheme === 'dark' ? '🌙' : '🌞'}
-        </button>
-      </Container>
+      <ThemeContextClass.Consumer>
+        {({theme, handleToogleTheme}) => (
+          <Container>
+            <h1>JStack Blog</h1>
+            <button
+              type="button"
+              onClick={handleToogleTheme}
+            >
+              {theme === 'dark' ? '🌙' : '🌞'}
+            </button>
+          </Container>
+        )}
+      </ThemeContextClass.Consumer>
+
     );
   }
 }
