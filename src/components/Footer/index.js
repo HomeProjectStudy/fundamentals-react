@@ -1,25 +1,22 @@
 import React from 'react';
-import { ThemeContextClass } from '../../contexts/ThemeContext-class';
 
 import { Container } from './styles';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function Footer() {
+  const {theme, handleToogleTheme} = useTheme();
+
   return (
-    <ThemeContextClass.Consumer>
+    <Container>
+      <span>JStacks Blog. Todos os direitos reservados.</span>
+      <button
+        type="button"
+        onClick={handleToogleTheme}
+      >
+        {theme === 'dark' ? '🌙' : '🌞'}
 
-      {({theme, handleToogleTheme}) => (
-        <Container>
-          <span>JStacks Blog. Todos os direitos reservados.</span>
-          <button
-            type="button"
-            onClick={handleToogleTheme}
-          >
-            {theme === 'dark' ? '🌙' : '🌞'}
-
-          </button>
-        </Container>
-      )}
-    </ThemeContextClass.Consumer>
+      </button>
+    </Container>
 
   );
 }

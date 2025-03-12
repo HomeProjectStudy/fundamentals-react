@@ -1,16 +1,19 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 
 
 export const ThemeContext = createContext({});
 
 
 export function ThemeProvider({children}) {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(JSON.parse(localStorage.getItem('theme')) || 'dark');
 
-
-  function handleToogleTheme() {
-    setTheme((prevState) => prevState === 'light' ? 'dark' : 'light');
+  function handleToogleTheme(){
+    setTheme((prevState) => (prevState === 'dark' ? 'light' : 'dark'));
   }
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, handleToogleTheme }}>
