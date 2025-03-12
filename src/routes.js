@@ -10,18 +10,18 @@ export function Routes() {
   const transitions = useTransition(location, {
     from:{
       opacity:0,
-      transform: 'translateY(50px)',
-      position: 'absolute'
+      // transform: 'translateY(50px)',
+      // position: 'absolute'
     },
     enter:{
       opacity:1,
-      transform: 'translateY(0)',
-      position: 'absolute'
+      // transform: 'translateY(0)',
+      // position: 'absolute'
     },
     leave:{
       opacity:0,
-      transform: 'translateY(50px)',
-      position: 'absolute'
+      // transform: 'translateY(50px)',
+      // position: 'absolute'
     }
   });
 
