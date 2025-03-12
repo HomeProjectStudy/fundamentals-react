@@ -1,14 +1,20 @@
 import React from 'react';
 import Header from '../components/Header';
-import PostsList from '../components/PostList';
 import Footer from '../components/Footer';
 import PropTypes from 'prop-types';
+import { Routes } from '../routes';
+import { Nav } from './styles';
+import { Link } from 'react-router-dom';
 
 export default function Layout() {
   return (
     <>
       <Header/>
-      <PostsList />
+      <Nav>
+        <Link to="/">Home</Link>
+        <Link to="/posts">Posts</Link>
+      </Nav>
+      <Routes />
       <Footer/>
     </>
   );
